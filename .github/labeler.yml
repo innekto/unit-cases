@@ -1,0 +1,16 @@
+root: '*'
+
+workflows: '.github/**/*'
+
+tests: 'test/**/*'
+
+linters: 
+  - any: 
+    - '.eslintrc.js'
+    - '.prettierrc'
+
+environment:
+  - '.env.example'
+
+dependencies:
+  - 'package.json'

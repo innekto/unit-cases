@@ -1,0 +1,82 @@
+{
+  "periodStatistics": {
+    "caseCount": 3,
+    "completedCasesCount": 2,
+    "work": 1,
+    "life": 3,
+    "learning": 1
+  },
+  "allTimeStatistics": {
+    "allCases": 1,
+    "completedCases": 0,
+    "failedCases": 1
+  },
+ 
+
+  "userRegisterResponse": {
+    "email": "grefettessutta-9373@yopmail.com",
+    "username": "Grefettessutta-9373",
+    "createdAt": "2024-06-09T14:16:55.148Z",
+    "image": "null",
+    "points": "null",
+    "updatedAt": "null",
+    "id": 119,
+    "isActive": true,
+    "isLoggedIn": false,
+    "caseMinutes": 6
+  },
+
+  "lifeBalance": {
+    "id": 4,
+    "creative": 0,
+    "learning": 25,
+    "life": 25,
+    "rest": 0,
+    "social": 0,
+    "work": 50
+  },
+ 
+
+  "accessToken": { "accessToken": "your_access_token_here" },
+
+  "createSubscription": {
+    "id": 1,
+    "endpoint": "string",
+    "expirationTime": "string",
+    "p256dh": "string",
+    "auth": "string"
+  },
+
+  "createOrUpdateNotificationSettings": {
+    "eventReminders": true,
+    "caseReminders": true,
+    "browserChannel": true,
+    "systemChannel": true,
+    "id": 1
+  },
+  "casesByDay": [
+    {
+      "id": 554,
+      "title": "tasktitleregex",
+      "description": null,
+      "category": "life",
+      "priority": "low",
+      "pinned": true,
+      "createDate": "2025-03-25T15:50:05.696Z",
+      "deadline": "2025-04-06T18:27:11.797Z",
+      "completeDate": null
+    }
+  ]
+,
+  "summaryStatistics": {
+    "caseCount": 5,
+    "categories": {
+      "creative": { "completed": 0, "failed": 0, "uncompleted": 0 },
+      "learning": { "completed": 0, "failed": 0, "uncompleted": 0 },
+      "life": { "completed": 0, "failed": 0, "uncompleted": 5 },
+      "rest": { "completed": 0, "failed": 0, "uncompleted": 0 },
+      "social": { "completed": 0, "failed": 0, "uncompleted": 0 },
+      "work": { "completed": 0, "failed": 0, "uncompleted": 0 }
+    }
+  }
+}
