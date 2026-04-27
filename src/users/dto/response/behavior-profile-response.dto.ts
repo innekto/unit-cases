@@ -142,4 +142,3 @@ export class WeeklyBehaviorAckResponseDto {
   @ApiProperty({ example: '2026-04-21T09:14:22.000Z', nullable: true })
   seenAt?: string;
 }
-

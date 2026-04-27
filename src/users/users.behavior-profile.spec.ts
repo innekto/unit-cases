@@ -191,4 +191,3 @@ describe('UsersService behavior profile weekly flow', () => {
     });
   });
 });
-

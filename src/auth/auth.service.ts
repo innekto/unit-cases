@@ -121,11 +121,7 @@ export class AuthService {
     return (user as { user?: UserEntity }).user ?? (user as UserEntity);
   }
 
-  private async generateTokens(
-    email: string,
-    id: number,
-    sessionId: number,
-  ): Promise<Tokens> {
+  private async generateTokens(email: string, id: number, sessionId: number): Promise<Tokens> {
     const refreshSecret = this.configService.get<string>('REFRESH_JWT_SECRET');
     if (!refreshSecret) {
       throw new Error('REFRESH_JWT_SECRET is not configured');

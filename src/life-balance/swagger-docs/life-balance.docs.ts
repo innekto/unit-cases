@@ -2,12 +2,12 @@ import { applyDecorators } from '@nestjs/common';
 import {
   ApiBadRequestResponse,
   ApiBearerAuth,
+  ApiBody,
   ApiInternalServerErrorResponse,
   ApiNotFoundResponse,
-  ApiOperation,
   ApiOkResponse,
+  ApiOperation,
   ApiUnauthorizedResponse,
-  ApiBody,
 } from '@nestjs/swagger';
 
 import responses from '../../responses.json';
@@ -48,7 +48,8 @@ export const UpsertLifeBalanceDocs = () =>
         'application/json': {
           example: {
             statusCode: 400,
-            message: 'The sum of creative, learning, life, rest, social, and work should be equal to 100',
+            message:
+              'The sum of creative, learning, life, rest, social, and work should be equal to 100',
             error: 'Bad Request',
           },
         },
@@ -141,4 +142,3 @@ export const GetLifeBalanceDocs = () =>
       },
     }),
   );
-

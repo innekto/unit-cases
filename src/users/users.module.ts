@@ -16,7 +16,6 @@ import { UserEntity } from './entities/user.entity';
 import { BehaviorProfileSnapshotProcessor } from './processors/behavior-profile-snapshot.processor';
 import { BehaviorProfileSnapshotScheduler } from './processors/behavior-profile-snapshot.scheduler';
 import { UnverifiedUserCleanupProcessor } from './processors/unverified-user-cleanup.processor';
-import { UnverifiedUserCleanupScheduler } from './processors/unverified-user-cleanup.scheduler';
 import { UsersController } from './users.controller';
 import { UsersService } from './users.service';
 
@@ -43,7 +42,6 @@ import { UsersService } from './users.service';
     UsersService,
     CloudinaryService,
     UnverifiedUserCleanupProcessor,
-    UnverifiedUserCleanupScheduler,
     BehaviorProfileSnapshotProcessor,
     BehaviorProfileSnapshotScheduler,
   ],

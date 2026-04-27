@@ -46,8 +46,8 @@ async function bootstrap() {
   app.useStaticAssets(join(__dirname, '..', 'node_modules', 'swagger-ui-dist'));
 
   const docConfig = new DocumentBuilder()
-    .setTitle('Runner API')
-    .setDescription(`Runner API - base URL: `)
+    .setTitle('Units API')
+    .setDescription(`Units API - base URL: `)
     .setVersion('1.0')
     .addTag('Auth')
     .addTag('Users')
