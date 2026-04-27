@@ -1,23 +1,19 @@
 import * as dotenv from 'dotenv';
 import { join } from 'path';
-import { parse } from 'pg-connection-string';
 import { DataSource, DataSourceOptions } from 'typeorm';
 
 dotenv.config();
 
-const connectionString = process.env.DATABASE_URL;
-const dbConfig = connectionString ? parse(connectionString) : null;
-
-const host = dbConfig?.host ?? process.env.DATABASE_HOST;
-const port = Number(dbConfig?.port ?? process.env.DATABASE_PORT ?? 5432);
-const username = dbConfig?.user ?? process.env.DATABASE_USERNAME;
-const password = dbConfig?.password ?? process.env.DATABASE_PASSWORD;
-const database = dbConfig?.database ?? process.env.DATABASE_NAME;
+const host = process.env.DATABASE_HOST;
+const port = Number(process.env.DATABASE_PORT);
+const username = process.env.DATABASE_USERNAME;
+const password = process.env.DATABASE_PASSWORD;
+const database = process.env.DATABASE_NAME;
 const rawSsl = process.env.DATABASE_SSL;
 
 if (!host || !Number.isFinite(port) || !username || !password || !database) {
   throw new Error(
-    'Database config is missing. Set DATABASE_URL or DATABASE_HOST, DATABASE_PORT, DATABASE_USERNAME, DATABASE_PASSWORD, DATABASE_NAME.',
+    'Database config is missing. Set DATABASE_HOST, DATABASE_PORT, DATABASE_USERNAME, DATABASE_PASSWORD, DATABASE_NAME.',
   );
 }
 

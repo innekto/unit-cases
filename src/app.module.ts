@@ -4,7 +4,6 @@ import { BullModule } from '@nestjs/bullmq';
 import { APP_GUARD, APP_INTERCEPTOR } from '@nestjs/core';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { join } from 'path';
-import { parse } from 'pg-connection-string';
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -47,18 +46,16 @@ import { UsersModule } from './users/users.module';
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
       useFactory: async (configService: ConfigService) => {
-        const connectionString = configService.get<string>('DATABASE_URL');
-        const dbConfig = connectionString ? parse(connectionString) : null;
-        const host = dbConfig?.host ?? configService.get<string>('DATABASE_HOST');
-        const port = Number(dbConfig?.port ?? configService.get<string>('DATABASE_PORT'));
-        const username = dbConfig?.user ?? configService.get<string>('DATABASE_USERNAME');
-        const password = dbConfig?.password ?? configService.get<string>('DATABASE_PASSWORD');
-        const database = dbConfig?.database ?? configService.get<string>('DATABASE_NAME');
+        const host = configService.get<string>('DATABASE_HOST');
+        const port = Number(configService.get<string>('DATABASE_PORT'));
+        const username = configService.get<string>('DATABASE_USERNAME');
+        const password = configService.get<string>('DATABASE_PASSWORD');
+        const database = configService.get<string>('DATABASE_NAME');
         const rawSsl = configService.get<string>('DATABASE_SSL');
 
         if (!host || !Number.isFinite(port) || !username || !password || !database) {
           throw new Error(
-            'Database config is missing. Set DATABASE_URL or DATABASE_HOST, DATABASE_PORT, DATABASE_USERNAME, DATABASE_PASSWORD, DATABASE_NAME.',
+            'Database config is missing. Set DATABASE_HOST, DATABASE_PORT, DATABASE_USERNAME, DATABASE_PASSWORD, DATABASE_NAME.',
           );
         }
 
