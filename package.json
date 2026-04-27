@@ -30,11 +30,6 @@
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "prepare": "husky install",
     "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js -d src/database/data-source.ts",
-    "migration:create": "npm run typeorm -- migration:create src/database/migrations/migration",
-    "migration:generate": "npm run typeorm -- migration:generate src/database/migrations/migration --pretty",
-    "migration:run": "npm run typeorm -- migration:run",
-    "migration:revert": "npm run typeorm -- migration:revert",
-    "migration:show": "npm run typeorm -- migration:show",
     "schema:drop": "npm run typeorm -- schema:drop",
     "seed:run": "ts-node -r tsconfig-paths/register ./src/database/seeds/run-seed.ts"
   },

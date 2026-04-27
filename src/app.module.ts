@@ -70,9 +70,7 @@ import { UsersModule } from './users/users.module';
           password,
           database,
           entities: [join(__dirname, '**', '*.entity.{ts,js}')],
-          migrations: [join(__dirname, 'database', 'migrations', '*.{ts,js}')],
           synchronize: true,
-          migrationsRun: true,
           ssl: useSsl ? { rejectUnauthorized: false } : false,
           extra: {
             max: 10,
