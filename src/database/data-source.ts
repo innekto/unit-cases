@@ -17,8 +17,7 @@ if (!host || !Number.isFinite(port) || !username || !password || !database) {
   );
 }
 
-const useSsl =
-  rawSsl !== undefined ? rawSsl === 'true' : host !== 'localhost' && host !== '127.0.0.1';
+const useSsl = rawSsl === 'true';
 
 export const dataSourceOptions: DataSourceOptions = {
   type: 'postgres',

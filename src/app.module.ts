@@ -31,6 +31,7 @@ import { UsersModule } from './users/users.module';
         const port = Number(configService.get<string>('REDIS_PORT') || 6379);
         const password = configService.get<string>('REDIS_PASSWORD') || undefined;
         const db = Number(configService.get<string>('REDIS_DB') || 0);
+        // true only for TLS Redis (e.g. rediss). Plain redis:// on Render → keep false or ERR_SSL_WRONG_VERSION_NUMBER
         const tls = configService.get<string>('REDIS_TLS') === 'true';
 
         const connection: any = { host, port, db };
@@ -59,8 +60,9 @@ import { UsersModule } from './users/users.module';
           );
         }
 
-        const useSsl =
-          rawSsl !== undefined ? rawSsl === 'true' : host !== 'localhost' && host !== '127.0.0.1';
+        // Only when explicitly true. Auto-SSL by hostname often causes ERR_SSL_WRONG_VERSION_NUMBER
+        // (TLS client to a plain TCP port). Managed Postgres on Render: set DATABASE_SSL=true.
+        const useSsl = rawSsl === 'true';
 
         return {
           type: 'postgres',
